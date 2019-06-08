@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>01</title>
+
+
+        <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/1.1.0/annyang.min.js"></script>
+        <script type="text/javascript">
+                
+       window.microphoneoff = function(){
+            $(".onbtn").show();
+              $(".offbtn").hide();
+              $(".alert").hide();
+        }
+       window.onload = function(){
+            $(".onbtn").show();
+              $(".offbtn").hide();
+              $(".alert").hide();
+        }
+          window.microphoneon = function(){
+              $(".onbtn").hide();
+              $(".offbtn").show();
+              $(".alert").hide();
+              if (annyang) {
+                  var commands = {
+                      'salam': function() {
+                          alert('سلام عزیزم \n خوش آمدید  ');
+                          
+                      },
+                      'how are you': function() {
+                         var s="ali";
+                         window.setTimeout(
+                            $(".alert").fadeIn(1000).fadeOut(5000).slideUp(7000),10000);
+                                $(".booland").val(s);
+                                $(".alert").show();       
+                      },
+                      'go to Google': function() {
+                          var s="بزن بریم گوگل";
+                        window.setTimeout(
+                            $(".alert").fadeIn(1000).fadeOut(5000).slideUp(1500),10000);
+                                $(".booland").val(s);
+                                $(".alert").show();
+                      
+                        window.setTimeout("location.href='https://www.google.com';",4000);
+
+
+                      }
+                  };
+                  annyang.addCommands(commands);
+                  annyang.start(); 
+              }
+              
+           
+          }
+    
+          </script>
+
+
+
+
+
+<style>
+body {
+padding: 50px;
+margin: 20px;
+text-align: center;
+direction: rtl !important;
+}
+p{
+    padding-top: 20px;
+}
+.booland{
+    
+  
+    color:black;
+    font-family: 'IRzar';
+    font-weight: bolder;
+    text-align: right;
+    padding-top:0px;
+    font-size: 20px;
+}
+.booland:hover{
+    cursor: pointer !important;
+}
+.btnn:hover{
+    box-shadow:0px 2px 20px 20px lightgray !important;
+    border-radius: 30px;
+    border-color: none !important;
+    color: pink !important;
+}
+
+</style>
+
+
+    </head>
+    <body>
+        
+            <div class="alert alert-success col col-md-3 col-lg-3 col-sm-4 col-sx-12"  role="alert" dir="ltr">
+                    <input type="hidden" id="txthide" value="">
+                     <strong dir="rtl">درخواست شما با موفقیت ثبت شد.</strong>  <i class="fa fa-check" aria-hidden="true"></i><p>  <input type="text"  readonly class="btn booland" value=""><i class='far fa-dot-circle' style='font-size:20px'></i></p>
+                   </div>
+
+                   <button onclick="microphoneon()" id="onbtn" class="btn btn-primary btnn onbtn" style='font-size:24px; border-radius: 20px; box-shadow:0px 2px 20px 30px lightgray; font-family: IRzar';'>میکروفون را روشن کن <i class='fa fa-microphone'></i></button>
+                   <br><br><br>
+                   <button onclick="microphoneoff()" id="offbtn" class="btn btn-primary btnn offbtn" style='font-size:24px; border-radius: 20px; box-shadow:0px 2px 20px 30px lightgray; font-family: IRzar';'>میکروفون را خاموش کن <i class='fa fa-microphone-slash'></i></button>
+    </body>
+</html>
